@@ -8,13 +8,6 @@ Zoho API client for Elixir
 
 Make basic Elixir Zoho CRM API Connection
 
-### TODO
-
-#### Resources
-
-- [ ] Charges
-- [ ] Refunds
-
 ## Usage
 
 Auth is done from either the enviromental variable ZOHO_AUTH_KEY or auth_key
