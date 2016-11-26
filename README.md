@@ -8,6 +8,13 @@ Zoho API client for Elixir
 
 Make basic Elixir Zoho CRM API Connection
 
+### SUPPORTS
+
+- [ ] Accounts (get, get_clean)
+- [ ] Contacts (get, get_clean)
+- [ ] Deals (get, get_clean)
+- [ ] Leads (get, get_clean)
+
 ## Usage
 
 Auth is done from either the enviromental variable ZOHO_AUTH_KEY or auth_key
@@ -56,5 +63,32 @@ List.first (leads.response["result"]["Leads"]["row"])
   #   %{"content" => "2016-11-26 10:32:15", "val" => "Last Activity Time"}],
   #  "no" => "1"}
 
+leads = Zoho.Leads.get_clean
+
+  #[%{"Annual Revenue" => "1313131313", "Company" => "fafaf",
+  #   "Created By" => "Wyatt Benno", "Created Time" => "2016-11-26 10:32:15",
+  #   "Designation" => "fafa", "Email" => "fa@ca.com", "Email Opt Out" => "false",
+  #   "Fax" => "fafa", "First Name" => "fafa", "Industry" => "ERP関連企業",
+  #   "LEADID" => "2223345000000110264",
+  #   "Last Activity Time" => "2016-11-26 10:32:15", "Last Name" => "fafaf",
+  #   "Lead Owner" => "Wyatt Benno", "Lead Source" => "社員からの紹介",
+  #   "MODIFIEDBY" => "2223345000000109005", "Mobile" => "123",
+  #   "Modified By" => "Wyatt Benno", "Modified Time" => "2016-11-26 10:32:15",
+  #   "No of Employees" => "0", "Phone" => "123",
+  #   "SMCREATORID" => "2223345000000109005", "SMOWNERID" => "2223345000000109005",
+  #   "Website" => "afaf.com"},
+  # %{"Annual Revenue" => "11111111", "City" => "shibuya", "Company" => "test",
+  #   "Country" => "japan", "Created By" => "Wyatt Benno",
+  #   "Created Time" => "2016-11-26 09:02:53", "Designation" => "test",
+  #   "Email" => "test@test.com", "Email Opt Out" => "false",
+  #   "First Name" => "test", "Industry" => "データ/通信OEM",
+  #   "LEADID" => "2223345000000110182",
+  #   "Last Activity Time" => "2016-11-26 09:02:53", "Last Name" => "test",
+  #   "Lead Owner" => "Wyatt Benno", "Lead Source" => "広告",
+  #   "MODIFIEDBY" => "2223345000000109005", "Mobile" => "111-0000-1234",
+  #   "Modified By" => "Wyatt Benno", "Modified Time" => "2016-11-26 09:02:53",
+  #   "No of Employees" => "0", "Phone" => "111-0000-1234",
+  #   "SMCREATORID" => "2223345000000109005", "SMOWNERID" => "2223345000000109005",
+  #   "State" => "tokyo", "Street" => "test address"}]
 
 ```

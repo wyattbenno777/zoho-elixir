@@ -1,14 +1,14 @@
-defmodule Zoho.Leads do
+defmodule Zoho.Contacts do
   auth_key =  System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
-  @endpoint "/Leads/getRecords?authtoken=#{auth_key}&scope=crmapi"
-  @resource Zoho.Lead
+  @endpoint "/Contacts/getRecords?authtoken=#{auth_key}&scope=crmapi"
+  @resource Zoho.Contact
   use Zoho.Resource
 
   #clean up strange data format
   def get_clean do
-     data = Zoho.Leads.get
+     data = Zoho.Contacts.get
 
-     top = data.response["result"]["Leads"]["row"]
+     top = data.response["result"]["Contacts"]["row"]
      if is_list top do
        data2 = top
        data3 = Enum.map(data2, fn(y) -> Enum.map(y["FL"], fn(x) -> %{x["val"] => x["content"]} end) end)
