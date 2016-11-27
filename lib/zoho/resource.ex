@@ -14,6 +14,23 @@ defmodule Zoho.Resource do
         |> Zoho.Response.new(%{as: @resource})
       end
 
+      def insert(params\\%{}) do
+        raw_insert(params).data
+      end
+
+      def raw_insert(params\\%{}) do
+        build_post(@loc, @postendpoint, params)
+        |> Zoho.get #[body: ""]
+        |> Zoho.Response.new(%{as: @resource})
+      end
+
+      defp build_post(loc, path, params) do
+        start = "<#{loc}><row no='1'>"
+        close = "</row></#{loc}>"
+        values = Enum.map(params, fn({key, value}) -> "<FL val='#{key}'>#{value}</FL>" end) |> Enum.join
+        path <> URI.encode(start <> values <> close)
+      end
+
       defp build_path(path, params) do
         Enum.reduce(params, path, &do_param_replacement/2)
         |> remove_unused_params

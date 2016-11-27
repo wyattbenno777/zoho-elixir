@@ -10,10 +10,10 @@ Make basic Elixir Zoho CRM API Connection
 
 ### SUPPORTS
 
-- [ ] Accounts (get, get_clean)
-- [ ] Contacts (get, get_clean)
+- [ ] Accounts (get, get_clean, get_example, insert)
+- [ ] Contacts (get, get_clean, get_example, insert)
 - [ ] Deals (get, get_clean)
-- [ ] Leads (get, get_clean)
+- [ ] Leads (get, get_clean, get_example, insert)
 
 ## Usage
 
@@ -90,5 +90,23 @@ leads = Zoho.Leads.get_clean
   #   "No of Employees" => "0", "Phone" => "111-0000-1234",
   #   "SMCREATORID" => "2223345000000109005", "SMOWNERID" => "2223345000000109005",
   #   "State" => "tokyo", "Street" => "test address"}]
+
+example = Zoho.Leads.get_example
+
+  #%{Company: "Your Company", Email: "testing@testing.com", Fax: "222",
+  #  "First Name": "Hannah", "Home Phone": "0987654321", "Last Name": "smith",
+  #  "Lead Source": "Web Download", Mobile: "123", "Other Phone": "111",
+  #  Phone: "1234567890", Title: "Manager"}
+
+Zoho.Leads.insert example
+
+  #%Zoho.Lead{response: %{"result" => %{"message" => "Record(s) added successfully",
+  #{}"recorddetail" => %{"FL" => [%{"content" => "2223345000000114021",
+  #      "val" => "Id"},
+  #    %{"content" => "2016-11-27 12:54:01", "val" => "Created Time"},
+  #    %{"content" => "2016-11-27 12:54:01", "val" => "Modified Time"},
+  #    %{"content" => "Wyatt Benno", "val" => "Created By"},
+  #    %{"content" => "Wyatt Benno", "val" => "Modified By"}]}},
+  #{}"uri" => "/crm/private/json/Leads/insertRecords"}}
 
 ```

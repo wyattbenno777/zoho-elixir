@@ -1,8 +1,25 @@
 defmodule Zoho.Contacts do
   auth_key =  System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
   @endpoint "/Contacts/getRecords?authtoken=#{auth_key}&scope=crmapi"
+  @postendpoint "/Contacts/insertRecords?authtoken=#{auth_key}&scope=crmapi&xmlData="
+  @loc "Contacts"
   @resource Zoho.Contact
   use Zoho.Resource
+
+  #get example map for Contacts post
+  def get_example do
+
+    example = %{"First Name": "Scott",
+     "Last Name": "James",
+     "Email": "test@test.com",
+     "Department": "CG",
+     "Phone": "999999999",
+     "Fax": "999999999",
+     "Mobile": "999999999",
+     "Assistant": "John"}
+
+    example
+  end
 
   #clean up strange data format
   def get_clean do
