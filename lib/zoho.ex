@@ -3,15 +3,15 @@ defmodule Zoho do
 
   @spec process_url(String.t) :: String.t
   def process_url(path) do
-    "https://crm.zoho.com/crm/private/json" <> path
+    "https://#{domain()}/crm/private/json" <> path
   end
 
-  @spec process_request_headers(map) :: map
-  def process_request_headers(headers) do
-    Dict.put headers, :Authorization, "Bearer #{auth_key}"
-  end
 
   defp auth_key do
     System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
+  end
+
+  defp domain do
+    System.get_env("ZOHO_DOMAIN") || Application.get_env(:zoho, :domain) || "crm.zoho.com"
   end
 end
