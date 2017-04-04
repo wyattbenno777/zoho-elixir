@@ -8,10 +8,10 @@ defmodule Zoho do
 
 
   defp auth_key do
-    System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
+    Application.get_env(:zoho, :auth_key)
   end
 
   defp domain do
-    System.get_env("ZOHO_DOMAIN") || Application.get_env(:zoho, :domain) || "crm.zoho.com"
+    Application.get_env(:zoho, :domain) || "crm.zoho.com"
   end
 end
