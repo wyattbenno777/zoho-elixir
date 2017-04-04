@@ -9,9 +9,9 @@ defmodule Zoho.Resource do
       end
 
       def raw_get(params\\%{}) do
-        build_path(@endpoint, params)
+        build_path(endpoint(), params)
         |> Zoho.get
-        |> Zoho.Response.new(%{as: @resource})
+        |> Zoho.Response.new(%{as: @resource()})
       end
 
       def insert(params\\%{}) do
@@ -19,7 +19,7 @@ defmodule Zoho.Resource do
       end
 
       def raw_insert(params\\%{}) do
-        build_post(@loc, @postendpoint, params)
+        build_post(@loc, postendpoint(), params)
         |> Zoho.get #[body: ""]
         |> Zoho.Response.new(%{as: @resource})
       end

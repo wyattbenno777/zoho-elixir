@@ -1,10 +1,20 @@
 defmodule Zoho.Accounts do
-  auth_key =  Application.get_env(:zoho, :auth_key)
-  @endpoint "/Accounts/getRecords?authtoken=#{auth_key}&scope=crmapi"
-  @postendpoint "/Accounts/insertRecords?authtoken=#{auth_key}&scope=crmapi&xmlData="
+  
   @loc "Accounts"
   @resource Zoho.Account
   use Zoho.Resource
+
+  defp auth_key do
+    Application.get_env(:zoho, :auth_key)
+  end
+
+  def endpoint do
+    "/Accounts/getRecords?authtoken=#{auth_key()}&scope=crmapi"
+  end
+
+  def postendpoint do
+    "/Accounts/insertRecords?authtoken=#{auth_key()}&scope=crmapi&xmlData="
+  end
 
   #get example map for Accounts post
   def get_example do
