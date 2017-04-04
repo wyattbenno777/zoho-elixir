@@ -1,5 +1,5 @@
 defmodule Zoho.Leads do
-  auth_key =  System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
+  auth_key = Application.get_env(:zoho, :auth_key)
   @endpoint "/Leads/getRecords?authtoken=#{auth_key}&scope=crmapi"
   @postendpoint "/Leads/insertRecords?authtoken=#{auth_key}&scope=crmapi&xmlData="
   @loc "Leads"
