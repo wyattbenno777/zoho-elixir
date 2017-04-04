@@ -57,7 +57,7 @@ defmodule Zoho.Response do
   # Just pull out known keys on the passed in `as: struct`, other than the
   # :__struct__ key
   defp cast_data(data, %{as: as_struct}) when is_map(data) do
-    struct_keys = Map.keys(as_struct.__struct__) |> List.delete :__struct__
+    struct_keys = Map.keys(as_struct.__struct__) |> List.delete(:__struct__)
     struct(as_struct, Zoho.Utils.safe_atomize_keys(data, struct_keys))
   end
 
