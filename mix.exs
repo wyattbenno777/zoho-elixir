@@ -7,9 +7,9 @@ defmodule Zoho.Mixfile do
       version: "0.0.3",
       source_url: "https://github.com/wyattbenno777/zoho-elixir",
       elixir: "~> 1.4",
-      deps: deps,
-      description: description,
-      package: package
+      deps: deps(),
+      description: description(),
+      package: package()
     ]
   end
 
