@@ -2,19 +2,8 @@ defmodule Zoho.Contacts do
   
   @loc "Contacts"
   @resource Zoho.Contact
+
   use Zoho.Resource
-
-  defp auth_key do
-    Application.get_env(:zoho, :auth_key)
-  end
-
-  def endpoint do
-    "/Contacts/getRecords?authtoken=#{auth_key()}&scope=crmapi"
-  end
-
-  def postendpoint do
-    "/Contacts/insertRecords?authtoken=#{auth_key()}&scope=crmapi&xmlData="
-  end
 
   #get example map for Contacts post
   def get_example do

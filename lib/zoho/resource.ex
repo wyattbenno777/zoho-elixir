@@ -4,6 +4,18 @@ defmodule Zoho.Resource do
       @resource Module.get_attribute(__MODULE__, :resource) || nil
       @trailing_param_key_regex ~r/(.+)\/\:\w+\Z/
 
+      def auth_key do
+        Application.get_env(:zoho, :auth_key)
+      end
+
+      def endpoint do
+        "/#{@loc}/getRecords?authtoken=#{auth_key()}&scope=crmapi"
+      end
+
+      def postendpoint do
+        "/#{@loc}/insertRecords?authtoken=#{auth_key()}&scope=crmapi&xmlData="
+      end
+
       def get(params\\%{}) do
         raw_get(params).data
       end

@@ -3,4 +3,7 @@
 use Mix.Config
 
 config :zoho,
-  auth_key: ""
+  auth_key: "",
+  domain: ""
+
+import_config "#{Mix.env}.exs"

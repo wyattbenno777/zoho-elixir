@@ -4,17 +4,6 @@ defmodule Zoho.Leads do
   @resource Zoho.Lead
   use Zoho.Resource
 
-  defp auth_key do
-    Application.get_env(:zoho, :auth_key)
-  end
-
-  def endpoint do
-    "/Leads/getRecords?authtoken=#{auth_key()}&scope=crmapi"
-  end
-
-  def postendpoint do
-    "/Leads/insertRecords?authtoken=#{auth_key()}&scope=crmapi&xmlData="
-  end
 
   #get example map for Leads post
   def get_example do
