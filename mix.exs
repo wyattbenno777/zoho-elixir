@@ -4,7 +4,7 @@ defmodule Zoho.Mixfile do
   def project do
     [
       app: :zoho,
-      version: "0.0.3",
+      version: "0.0.4",
       source_url: "https://github.com/wyattbenno777/zoho-elixir",
       elixir: "~> 1.4",
       deps: deps(),
