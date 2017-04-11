@@ -17,8 +17,10 @@ Make basic Elixir Zoho CRM API Connection
 
 ## Usage
 
-Auth is done from either the enviromental variable ZOHO_AUTH_KEY or auth_key
-in the config file.
+Configure `auth_key` and `domain` via config file.
+
+If you want to make the configuration at runtime I recommend using https://github.com/mrluc/deferred_config
+
 
 Generate your auth token via get request:
 https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=[Username/EmailID]&PASSWORD=[Password]&DISPLAY_NAME=[ApplicationName]

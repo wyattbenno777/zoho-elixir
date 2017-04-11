@@ -1,10 +1,10 @@
 defmodule Zoho.Deals do
-  auth_key =  System.get_env("ZOHO_AUTH_KEY") || Application.get_env(:zoho, :auth_key)
-  @endpoint "/Deals/getRecords?authtoken=#{auth_key}&scope=crmapi"
-  @postendpoint "/Deals/SalesOrders?authtoken=#{auth_key}&scope=crmapi&xmlData="
+  
   @loc "SalesOrders"
   @resource Zoho.Deal
+  
   use Zoho.Resource
+
 
   #clean up strange data format
   def get_clean do
